@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/Plateforme.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/plateform_path.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Verticale.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Horizontale.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/diagonale.tscn" type="PackedScene" id=5]
+[ext_resource path="res://asset/SunsetPurpleCombined.png" type="Texture" id=6]
+[ext_resource path="res://scenes/joueur.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/mort.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/victoire.tscn" type="PackedScene" id=9]
+
+[node name="main" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 656, 304 )
+scale = Vector2( 10.8667, 9.71852 )
+texture = ExtResource( 6 )
+
+[node name="Debut" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.145098, 0.745098, 0, 1 )
+position = Vector2( 8, 384 )
+
+[node name="Fin" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.713726, 0.164706, 0.141176, 1 )
+position = Vector2( 1272, 640 )
+
+[node name="plateform_path2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 568, 384 )
+
+[node name="plateform_path" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1208, 432 )
+vitesse = 200
+
+[node name="Horizontale" parent="." instance=ExtResource( 4 )]
+position = Vector2( 72, 640 )
+
+[node name="Horizontale2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 376, 128 )
+
+[node name="Verticale" parent="." instance=ExtResource( 3 )]
+position = Vector2( 200, 144 )
+
+[node name="Verticale2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1440, 96 )
+
+[node name="diagonale" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1072, -40 )
+
+[node name="joueur" parent="." instance=ExtResource( 7 )]
+position = Vector2( 64, 344 )
+
+[node name="mort" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8, 696 )
+
+[node name="Plateforme2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 872, 440 )
+
+[node name="Plateforme4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1256, 136 )
+
+[node name="Plateforme3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 568, 640 )
+
+[node name="Horizontale3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 760, 640 )
+
+[node name="victoire" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1272, 632 )
+[connection signal="body_entered" from="mort" to="joueur" method="_on_mort_body_entered"]
+[connection signal="body_entered" from="victoire" to="joueur" method="_on_victoire_body_entered"]

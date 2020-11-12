@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Plateforme.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "diagonale"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -300, 300 ) ]
+}
+
+[node name="diagonale" type="Node2D"]
+
+[node name="Plateforme" parent="." instance=ExtResource( 1 )]
+position = Vector2( -270.187, 270.187 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plateforme"]
+autoplay = "diagonale"
+anims/diagonale = SubResource( 1 )

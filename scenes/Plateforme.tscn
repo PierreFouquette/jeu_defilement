@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="Plateforme" type="KinematicBody2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2( 1.97446, 2.24788 )
+polygon = PoolVector2Array( 0, 0, 64.828, 0, 48.621, 10.6767, 16.207, 10.6767 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+scale = Vector2( 1.98065, 2.21003 )
+polygon = PoolVector2Array( 0, 0, 64.6252, 0, 48.4689, 10.8596, 16.1563, 10.8596 )
